@@ -31,3 +31,5 @@ Currently, two official plugins are available:
 
 `react-router-dom`
 
+`styled-components`
+

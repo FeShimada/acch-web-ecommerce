@@ -1,47 +1,52 @@
 import React, { useState } from 'react';
-import { LeftContainer, Logo, NavbarContainer, NavbarExtendedContainer, NavbarInnerContainer, NavbarLink, NavbarLinkContainer, NavbarLinkExtended, OpenLinksButton, RightContainer } from './Navbar.styles';
+import {
+  Nav,
+  NavbarContainer,
+  Logo,
+  MobileIcon,
+  NavMenu,
+  NavItem,
+  NavLinks,
+} from './Navbar.styles';
 import LogoImg from '../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+function Navbar() {
+  const [click, setClick] = useState(false);
+  const history = useNavigate();
 
-    const [extendNavbar, setExtendNavbar] = useState(false);
-    const history = useNavigate();
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
 
-    return (
-        <NavbarContainer extendNavbar={extendNavbar}>
-            <NavbarInnerContainer>
-                <LeftContainer>
-                    <NavbarLinkContainer>
-                        <NavbarLink to="/"> Home</NavbarLink>
-                        <NavbarLink to="/produtos"> Produtos</NavbarLink>
-                        <NavbarLink to="/carrinho"> Carrinho</NavbarLink>
-                        <OpenLinksButton
-                            onClick={() => {
-                                setExtendNavbar((curr) => !curr);
-                            }}
-                        >
-                            {extendNavbar ? <>&#10005;</> : <> &#8801;</>}
-                        </OpenLinksButton>
-                    </NavbarLinkContainer>
-                </LeftContainer>
-
-                <RightContainer>
-                    <Logo onClick={() => history('/')} src={LogoImg} />
-                </RightContainer>
-            </NavbarInnerContainer>
-
-            {extendNavbar && (
-                <NavbarExtendedContainer>
-                    <NavbarLinkExtended to="/"> Home</NavbarLinkExtended>
-                    <NavbarLinkExtended to="/produtos"> Produtos</NavbarLinkExtended>
-                    <NavbarLinkExtended to="/carrinho"> Carrinho</NavbarLinkExtended>
-                </NavbarExtendedContainer>
-            )}
-        </NavbarContainer>
-    )
+  return (
+    <>
+        <Nav>
+          <NavbarContainer>
+            <Logo onClick={() => history('/')} src={LogoImg} />
+            <MobileIcon onClick={handleClick}>
+              {click ? <>&#10005;</> : <> &#8801;</>}
+            </MobileIcon>
+            <NavMenu onClick={handleClick} click={click}>
+              <NavItem>
+                <NavLinks to='/' onClick={closeMobileMenu}>
+                  Home
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to='/produtos' onClick={closeMobileMenu}>
+                  Produtos
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to='/carrinho' onClick={closeMobileMenu}>
+                  Carrinho
+                </NavLinks>
+              </NavItem>
+            </NavMenu>
+          </NavbarContainer>
+        </Nav>
+    </>
+  );
 }
 
 export default Navbar;
-
-
