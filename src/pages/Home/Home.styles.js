@@ -71,8 +71,9 @@ export const Section = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 100vh;
+    height: 60vh;
 `;
 
 export const Container = styled.div`
@@ -97,5 +98,5 @@ export const CarouselContainer = styled.div`
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
-    height: 50vh;
+    height: 60vh;
 `;

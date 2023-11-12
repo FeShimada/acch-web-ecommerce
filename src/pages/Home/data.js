@@ -83,7 +83,7 @@ export const responsive = {
       id: 8,
       imageurl:
         "https://static.itdg.com.br/images/auto-auto/e37b23841dfbf1e65819f1e5076b5fdf/temaki-salmao.jpg",
-      name: "Dove cream",
+      name: "Temaki",
       price: "$49.99",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
