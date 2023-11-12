@@ -1,14 +1,28 @@
 import React from 'react';
 import FoodTruckImg from '../../assets/noun-food-truck.svg'
-import { Container, ContentContainer, FirstScreen, FoodTruckImage, HomeContainer, LeftContainer, MainText, Paragraph, RightContainer, Section, Title } from './Home.styles';
+import { CarouselContainer, Container, ContentContainer, FirstScreen, FoodTruckImage, HomeContainer, LeftContainer, MainText, Paragraph, RightContainer, Section, Title } from './Home.styles';
+import { productData, responsive } from './data';
+import ProductoCard from '../../components/ProdutoCard/ProdutoCard';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
 
 const Home = () => {
+
+    const product = productData.map((item) => (
+        <ProductoCard
+            name={item.name}
+            url={item.imageurl}
+            price={item.price}
+            description={item.description}
+        />
+    ));
+
     return (
         <HomeContainer>
 
             <FirstScreen>
                 <MainText>
-                    Compre no E-commerce conosco
+                    Compre no E-commerce conosco!
                 </MainText>
 
                 <ContentContainer>
@@ -22,6 +36,15 @@ const Home = () => {
                 </ContentContainer>
             </FirstScreen>
 
+
+            <CarouselContainer>
+                <MainText>
+                    Produtos em alta!
+                </MainText>
+                <Carousel showDots={false} responsive={responsive}>
+                    {product}
+                </Carousel>
+            </CarouselContainer>
 
             <Section>
                 <Title>Nossa História</Title>

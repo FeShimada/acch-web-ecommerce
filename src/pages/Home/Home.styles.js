@@ -5,9 +5,9 @@ export const HomeContainer = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    justify-content: flex-start;
     padding: 50px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.6);
-    justify-content: flex-start;
     background: linear-gradient(to top, black, #900020);
 `;
 
@@ -23,12 +23,21 @@ export const FirstScreen = styled.div`
 export const MainText = styled.div`
     font-size: 2rem;
     font-weight: bold;
+    margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
 `;
 
 export const ContentContainer = styled.div`
     display: flex;
-    width: 100%;
+    width: 70%;
     height: 100%;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const LeftContainer = styled.div`
@@ -36,7 +45,11 @@ export const LeftContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30vw;
+    max-width: 800px;
+
+    @media (max-width: 768px) {
+        font-size: 0.8rem;
+    }
 `;
 
 export const RightContainer = styled.div`
@@ -49,8 +62,7 @@ export const RightContainer = styled.div`
 `;
 
 export const FoodTruckImage = styled.img`   
-  margin: 10px;
-  max-width: 400px;
+  max-width: 200px;
   height: auto;
 `;
 
@@ -59,7 +71,7 @@ export const Section = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%
+    width: 100%;
     height: 100vh;
 `;
 
@@ -79,3 +91,11 @@ export const Paragraph = styled.p`
     margin-bottom: 15px;
 `;
 
+export const CarouselContainer = styled.div`
+
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    height: 50vh;
+`;
