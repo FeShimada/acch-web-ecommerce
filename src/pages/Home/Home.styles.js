@@ -74,6 +74,10 @@ export const Section = styled.section`
     justify-content: center;
     width: 100%;
     height: 60vh;
+
+    @media (max-width: 768px) {
+        height: 100vh;
+    }
 `;
 
 export const Container = styled.div`
