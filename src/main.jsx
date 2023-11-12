@@ -6,6 +6,8 @@ import Home from './pages/Home/Home.jsx'
 import Product from './pages/Product/Product.jsx'
 import './index.css'
 import Error404 from './pages/Error404/Error404.jsx'
+import { CarrinhoProvider } from './context/CarrinhoContext.jsx'
+import { ToastContainer } from 'react-toastify'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CarrinhoProvider>
+      <ToastContainer position='top-left' hideProgressBar={true} theme="dark" />
+      <RouterProvider router={router} />
+    </CarrinhoProvider>
   </React.StrictMode>,
 )

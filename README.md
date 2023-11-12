@@ -33,3 +33,6 @@ Currently, two official plugins are available:
 
 `styled-components`
 
+`react-multi-carousel`
+
+`react-toastify`
