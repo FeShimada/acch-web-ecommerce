@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import "react-multi-carousel/lib/styles.css";
+import { useNavigate } from 'react-router-dom';
 import ProductoCarrinho from '../../components/ProdutoCarrinho/ProdutoCarrinho';
 import { CarrinhoContext } from '../../context/CarrinhoContext';
 import { BotaoComprar, Container, ProdutoContainer, ProdutoItem, Subtitulo, Titulo } from './Carrinho.styles';
@@ -7,6 +8,7 @@ import { BotaoComprar, Container, ProdutoContainer, ProdutoItem, Subtitulo, Titu
 const Carrinho = () => {
 
     const { carrinhoList } = useContext(CarrinhoContext);
+    const history = useNavigate();
 
     return (
 
@@ -29,7 +31,7 @@ const Carrinho = () => {
                 }
             </ProdutoContainer>
 
-            <BotaoComprar>Submeter compra</BotaoComprar>
+            <BotaoComprar onClick={() => {history('/comprar')}}>Submeter compra</BotaoComprar>
         </Container>
 
 

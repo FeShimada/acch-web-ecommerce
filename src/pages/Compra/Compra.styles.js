@@ -59,12 +59,13 @@ export const ProdutoItem = styled.div`
 `;
 
 export const BotaoComprar = styled.button`
-    margin-top: 20px;
-    margin-bottom: 20px;
     padding: 10px;
-    background-color: #900020;
-    color: white;
-    border-radius: 5px;
+  background-color: ${(props) => (props.disabled ? '#ccc' : '#900020')};
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
     border-bottom: 2px solid transparent; 
     transition: border-bottom 0.3s, transform 0.3s; 
     cursor: pointer;
@@ -74,4 +75,16 @@ export const BotaoComprar = styled.button`
     }
 `;
 
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+`;
 
+export const Input = styled.input`
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+`;

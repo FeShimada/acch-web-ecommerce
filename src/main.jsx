@@ -9,6 +9,7 @@ import Error404 from './pages/Error404/Error404.jsx'
 import { CarrinhoProvider } from './context/CarrinhoContext.jsx'
 import { ToastContainer } from 'react-toastify'
 import Carrinho from './pages/Carrinho/Carrinho.jsx'
+import Compra from './pages/Compra/Compra.jsx'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/carrinho',
         element: <Carrinho/>
+      },
+      {
+        path: '/comprar',
+        element: <Compra/>
       }
     ]
   },
