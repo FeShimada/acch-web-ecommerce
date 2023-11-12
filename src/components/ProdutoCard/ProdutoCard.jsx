@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CarrinhoContext } from "../../context/CarrinhoContext";
 import { Botao, Card, Descricao, Preco, ProdutoImagem, Titulo } from "./ProdutoCard.styles";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function ProductoCard(props) {
@@ -10,7 +10,14 @@ export default function ProductoCard(props) {
   const notify = () => toast.success("Sucesso! Produto adicionado ao carrinho");
 
   const handleClick = () => {
-    increaseNrCarrinho()
+    const carrinho = {
+      id: props.id,
+      imageurl: props.imageurl,
+      name: props.name,
+      price: props.price,
+      description: props.description,
+    }
+    increaseNrCarrinho(carrinho)
     notify()
   }
 

@@ -8,6 +8,7 @@ import './index.css'
 import Error404 from './pages/Error404/Error404.jsx'
 import { CarrinhoProvider } from './context/CarrinhoContext.jsx'
 import { ToastContainer } from 'react-toastify'
+import Carrinho from './pages/Carrinho/Carrinho.jsx'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/produtos',
         element: <Product/>
+      },
+      {
+        path: '/carrinho',
+        element: <Carrinho/>
       }
     ]
   },
@@ -31,7 +36,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <CarrinhoProvider>
-      <ToastContainer position='top-left' hideProgressBar={true} theme="dark" />
+      <ToastContainer position='top-left' hideProgressBar={true} />
       <RouterProvider router={router} />
     </CarrinhoProvider>
   </React.StrictMode>,
