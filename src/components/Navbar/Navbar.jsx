@@ -21,33 +21,77 @@ function Navbar() {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
+  const handleMouseEnterHome = () => {
+    const home = document.getElementsByClassName('home')[0];
+    if (home) {
+      home.style.color = '#B0C4DE';
+    }
+
+  }
+
+  const handleMouseEnterProduto = () => {
+    const produtos = document.getElementsByClassName('produto')[0];
+    if (produtos) {
+      produtos.style.color = '#B0C4DE';
+    }
+  }
+
+  const handleMouseEnterCarrinho = () => {
+    const carrinho = document.getElementsByClassName('carrinho')[0];
+    if (carrinho) {
+      carrinho.style.color = '#B0C4DE';
+    }
+  }
+
+  const handleMouseLeaveHome = () => {
+    const home = document.getElementsByClassName('home')[0];
+    if (home) {
+      home.style.color = 'white';
+    }    
+  }
+
+  const handleMouseLeaveProduto = () => {
+    const produtos = document.getElementsByClassName('produto')[0];
+    if (produtos) {
+      produtos.style.color = 'white';
+    }
+  }
+
+  const handleMouseLeaveCarrinho = () => {
+    const carrinho = document.getElementsByClassName('carrinho')[0];
+    if (carrinho) {
+      carrinho.style.color = 'white';
+    }
+  }
+
+
   return (
     <>
-        <Nav>
-          <NavbarContainer>
-            <Logo onClick={() => history('/')} src={LogoImg} />
-            <MobileIcon onClick={handleClick}>
-              {click ? <>&#10005;</> : <> &#8801;</>}
-            </MobileIcon>
-            <NavMenu onClick={handleClick} click={click}>
-              <NavItem>
-                <NavLinks to='/' onClick={closeMobileMenu}>
+      <Nav>
+        <NavbarContainer>
+          <Logo onClick={() => history('/')} src={LogoImg} />
+          <MobileIcon onClick={handleClick}>
+            {click ? <>&#10005;</> : <> &#8801;</>}
+          </MobileIcon>
+          <NavMenu onClick={handleClick} click={click}>
+              <NavItem onMouseEnter={handleMouseEnterHome} onMouseLeave={handleMouseLeaveHome}>
+                <NavLinks className="home" to='/' onClick={closeMobileMenu}>
                   Home
                 </NavLinks>
               </NavItem>
-              <NavItem>
-                <NavLinks to='/produtos' onClick={closeMobileMenu}>
-                  Produtos
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to='/carrinho' onClick={closeMobileMenu}>
-                  Carrinho: {nrCarrinho}
-                </NavLinks>
-              </NavItem>
-            </NavMenu>
-          </NavbarContainer>
-        </Nav>
+            <NavItem onMouseEnter={handleMouseEnterProduto} onMouseLeave={handleMouseLeaveProduto}>
+              <NavLinks className="produto" to='/produtos' onClick={closeMobileMenu}>
+                Produtos
+              </NavLinks>
+            </NavItem>
+            <NavItem onMouseEnter={handleMouseEnterCarrinho} onMouseLeave={handleMouseLeaveCarrinho}>
+              <NavLinks className="carrinho" to='/carrinho' onClick={closeMobileMenu}>
+                Carrinho: {nrCarrinho}
+              </NavLinks>
+            </NavItem>
+          </NavMenu>
+        </NavbarContainer>
+      </Nav>
     </>
   );
 }
